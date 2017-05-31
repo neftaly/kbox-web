@@ -1,0 +1,365 @@
+#kbox3dModel {
+  perspective: 50em;
+}
+#kbox3dModel .scene,
+#kbox3dModel .shape,
+#kbox3dModel .face,
+#kbox3dModel .face-wrapper,
+#kbox3dModel .cr {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+#kbox3dModel .scene {
+  width: 80em;
+  height: 80em;
+  top: 50%;
+  left: 50%;
+  margin: -40em 0 0 -40em;
+}
+#kbox3dModel .shape {
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-origin: 50%;
+}
+#kbox3dModel .face,
+#kbox3dModel .face-wrapper {
+  overflow: hidden;
+  transform-origin: 0 0;
+}
+#kbox3dModel .face {
+  background-size: 100% 100%!important;
+  background-position: center;
+}
+#kbox3dModel .face-wrapper .face {
+  left: 100%;
+  width: 100%;
+  height: 100%
+}
+#kbox3dModel .photon-shader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%
+}
+#kbox3dModel .side {
+  left: 50%;
+}
+#kbox3dModel .cr,
+#kbox3dModel .cr .side {
+  height: 100%;
+}
+#kbox3dModel [class*="cuboid"] .ft,
+#kbox3dModel [class*="cuboid"] .bk {
+  width: 100%;
+  height: 100%;
+}
+#kbox3dModel [class*="cuboid"] .bk {
+  left: 100%;
+}
+#kbox3dModel [class*="cuboid"] .rt {
+  transform: rotateY(-90deg) translateX(-50%);
+}
+#kbox3dModel [class*="cuboid"] .lt {
+  transform: rotateY(90deg) translateX(-50%);
+}
+#kbox3dModel [class*="cuboid"] .tp {
+  transform: rotateX(90deg) translateY(-50%);
+}
+#kbox3dModel [class*="cuboid"] .bm {
+  transform: rotateX(-90deg) translateY(-50%);
+}
+#kbox3dModel [class*="cuboid"] .lt {
+  left: 100%;
+}
+#kbox3dModel [class*="cuboid"] .bm {
+  top: 100%;
+}
+#kbox3dModel [class*="cylinder"] .tp {
+  transform: rotateX(90deg) translateY(-50%);
+}
+#kbox3dModel [class*="cylinder"] .bm {
+  transform: rotateX(-90deg) translateY(-50%);
+}
+#kbox3dModel [class*="cylinder"] .tp,
+#kbox3dModel [class*="cylinder"] .bm,
+#kbox3dModel [class*="cylinder"] .tp .photon-shader,
+#kbox3dModel [class*="cylinder"] .bm .photon-shader {
+  border-radius: 50%;
+}
+#kbox3dModel [class*="cylinder"] .bm {
+  top: 100%;
+}
+
+/* .top styles */
+#kbox3dModel .top {
+  transform: translate3D(0em, 1em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  opacity: 1;
+  width: 8em;
+  height: 2em;
+  margin: -1em 0 0 -4em;
+}
+#kbox3dModel .top .ft {
+  transform: translateZ(5.5em);
+}
+#kbox3dModel .top .bk {
+  transform: translateZ(-5.5em) rotateY(180deg);
+}
+#kbox3dModel .top .rt,
+#kbox3dModel .top .lt {
+  width: 11em;
+  height: 2em;
+}
+#kbox3dModel .top .tp,
+#kbox3dModel .top .bm {
+  width: 8em;
+  height: 11em;
+}
+#kbox3dModel .top .face {
+  background-color: #bbbbee;
+  opacity: 0.3;
+}
+#kbox3dModel .top .ft {
+  width: 6em;
+  margin-left: 1em;
+}
+#kbox3dModel .top .bk {
+  width: 6em;
+  margin-left: -1em;
+}
+#kbox3dModel .top .rt,
+#kbox3dModel .top .lt {
+  width: 9em;
+}
+#kbox3dModel .top .tp,
+#kbox3dModel .top .bm,
+#kbox3dModel .top .tp .photon-shader,
+#kbox3dModel .top .bm .photon-shader {
+  border-radius: 1em;
+}
+#kbox3dModel .top .cr {
+  width: 1em;
+  left: 0.5em;
+}
+#kbox3dModel .top .cr-0 {
+  transform: translate3D(6em, 0, 4.5em);
+}
+#kbox3dModel .top .cr-1 {
+  transform: translate3D(6em, 0, -4.5em);
+}
+#kbox3dModel .top .cr-2 {
+  transform: translate3D(0, 0, -4.5em);
+}
+#kbox3dModel .top .cr-3 {
+  transform: translate3D(0, 0, 4.5em);
+}
+#kbox3dModel .top .cr-0 .s0 {
+  transform: rotateY(15deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-0 .s1 {
+  transform: rotateY(45deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-0 .s2 {
+  transform: rotateY(75deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-1 .s0 {
+  transform: rotateY(105deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-1 .s1 {
+  transform: rotateY(135deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-1 .s2 {
+  transform: rotateY(165deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-2 .s0 {
+  transform: rotateY(195deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-2 .s1 {
+  transform: rotateY(225deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-2 .s2 {
+  transform: rotateY(255deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-3 .s0 {
+  transform: rotateY(285deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-3 .s1 {
+  transform: rotateY(315deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .cr-3 .s2 {
+  transform: rotateY(345deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .top .side {
+  width: 0.56em;
+}
+
+/* .bottom styles */
+#kbox3dModel .bottom {
+  transform: translate3D(0em, -1em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  opacity: 1;
+  width: 8em;
+  height: 2em;
+  margin: -1em 0 0 -4em;
+}
+#kbox3dModel .bottom .ft {
+  transform: translateZ(5.5em);
+}
+#kbox3dModel .bottom .bk {
+  transform: translateZ(-5.5em) rotateY(180deg);
+}
+#kbox3dModel .bottom .rt,
+#kbox3dModel .bottom .lt {
+  width: 11em;
+  height: 2em;
+}
+#kbox3dModel .bottom .tp,
+#kbox3dModel .bottom .bm {
+  width: 8em;
+  height: 11em;
+}
+#kbox3dModel .bottom .face {
+  background-color: #dddddd;
+}
+#kbox3dModel .bottom .ft {
+  width: 6em;
+  margin-left: 1em;
+}
+#kbox3dModel .bottom .bk {
+  width: 6em;
+  margin-left: -1em;
+}
+#kbox3dModel .bottom .rt,
+#kbox3dModel .bottom .lt {
+  width: 9em;
+}
+#kbox3dModel .bottom .tp,
+#kbox3dModel .bottom .bm,
+#kbox3dModel .bottom .tp .photon-shader,
+#kbox3dModel .bottom .bm .photon-shader {
+  border-radius: 1em;
+}
+#kbox3dModel .bottom .cr {
+  width: 1em;
+  left: 0.5em;
+}
+#kbox3dModel .bottom .cr-0 {
+  transform: translate3D(6em, 0, 4.5em);
+}
+#kbox3dModel .bottom .cr-1 {
+  transform: translate3D(6em, 0, -4.5em);
+}
+#kbox3dModel .bottom .cr-2 {
+  transform: translate3D(0, 0, -4.5em);
+}
+#kbox3dModel .bottom .cr-3 {
+  transform: translate3D(0, 0, 4.5em);
+}
+#kbox3dModel .bottom .cr-0 .s0 {
+  transform: rotateY(15deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-0 .s1 {
+  transform: rotateY(45deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-0 .s2 {
+  transform: rotateY(75deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-1 .s0 {
+  transform: rotateY(105deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-1 .s1 {
+  transform: rotateY(135deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-1 .s2 {
+  transform: rotateY(165deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-2 .s0 {
+  transform: rotateY(195deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-2 .s1 {
+  transform: rotateY(225deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-2 .s2 {
+  transform: rotateY(255deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-3 .s0 {
+  transform: rotateY(285deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-3 .s1 {
+  transform: rotateY(315deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .cr-3 .s2 {
+  transform: rotateY(345deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .bottom .side {
+  width: 0.56em;
+}
+
+/* .knob styles */
+#kbox3dModel .knob {
+  transform: translate3D(0em, 0.5em, 3.25em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  opacity: 1;
+  width: 2em;
+  height: 1em;
+  margin: -0.5em 0 0 -1em;
+}
+#kbox3dModel .knob .tp,
+#kbox3dModel .knob .bm {
+  width: 2em;
+  height: 2em;
+}
+#kbox3dModel .knob .side {
+  width: 1.18em;
+  height: 1em;
+}
+#kbox3dModel .knob .s0 {
+  transform: rotateY(30deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .knob .s1 {
+  transform: rotateY(90deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .knob .s2 {
+  transform: rotateY(150deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .knob .s3 {
+  transform: rotateY(210deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .knob .s4 {
+  transform: rotateY(270deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .knob .s5 {
+  transform: rotateY(330deg) translate3D(-50%, 0, 0.975em);
+}
+#kbox3dModel .knob .face,
+#kbox3dModel .knob .side {
+  background-color: #454545;
+}
+
+/* .screen styles */
+#kbox3dModel .screen {
+  transform: translate3D(0em, 0.1em, -1.5em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  opacity: 1;
+  width: 4em;
+  height: 0.2em;
+  margin: -0.1em 0 0 -2em;
+}
+#kbox3dModel .screen .ft {
+  transform: translateZ(2.5em);
+}
+#kbox3dModel .screen .bk {
+  transform: translateZ(-2.5em) rotateY(180deg);
+}
+#kbox3dModel .screen .rt,
+#kbox3dModel .screen .lt {
+  width: 5em;
+  height: 0.2em;
+}
+#kbox3dModel .screen .tp,
+#kbox3dModel .screen .bm {
+  width: 4em;
+  height: 5em;
+}
+#kbox3dModel .screen .face {
+  background-color: #252525;
+}
