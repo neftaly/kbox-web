@@ -44,7 +44,45 @@ const state = hashRouter(
       yaw: 0
     },
     atmospheric: {},
-    power: {}
+    analog: {
+      inputs: {
+        pin0: {
+          type: 'outsideTemp',
+          data: [
+            [ 8, 10 ],
+            [ 10, 20 ],
+            [ 12, 80 ]
+          ],
+          units: [ 'volts', '℃' ]
+        },
+        pin1: {
+          type: 'battCharge',
+          data: [
+            [ 10, 0 ],
+            [ 11, 40 ],
+            [ 13, 60 ],
+            [ 14, 100 ]
+          ],
+          units: [ 'volts', 'percent' ]
+        },
+        pin2: {
+          type: 'insideTemp',
+          data: [
+            [ 8, 20 ],
+            [ 12, 40 ]
+          ],
+          units: [ 'volts', '℃' ]
+        },
+        pin3: {
+          type: 'current',
+          data: [
+            [ 0, 0 ],
+            [ 20, 50 ]
+          ],
+          units: [ 'millvolts', 'amps' ]
+        }
+      }
+    }
   }),
   R.pick(['page']),
   render

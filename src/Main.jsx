@@ -13,8 +13,8 @@ const Main = pure(
     left: 0,
     padding: 0,
     margin: 0,
-    width: '100vw',
-    height: '100vh',
+    minWidth: '100vw',
+    minHeight: '100vh',
     position: 'absolute'
   }}>
     <Sidebar.Pushable as={Segment}>

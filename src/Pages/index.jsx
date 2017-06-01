@@ -5,7 +5,7 @@ import Wireless from './Wireless';
 import NMEA from './NMEA';
 import Position from './Position';
 import Atmospheric from './Atmospheric';
-import Power from './Power';
+import Analog from './Analog';
 import Dashboard from './Dashboard';
 import Unknown from './Unknown';
 
@@ -29,8 +29,8 @@ const Pages = pure(
           return Position;
         case 'atmospheric':
           return Atmospheric;
-        case 'power':
-          return Power;
+        case 'analog':
+          return Analog;
         // Other
         case 'dashboard':
           return Dashboard;

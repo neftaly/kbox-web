@@ -57,9 +57,9 @@ const SideMenu = pure(({ page }) => {
           onClick={set('atmospheric')}
         />
         <Menu.Item
-          name='power'
-          active={name === 'power'}
-          onClick={set('power')}
+          name='analog'
+          active={name === 'analog'}
+          onClick={set('analog')}
         />
       </Menu.Menu>
     </Menu.Item>
