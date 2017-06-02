@@ -1,11 +1,11 @@
-import { pure } from 'recompose';
+import pure from 'omniscient';
 import Interface from './Interface';
 import Storage from './Storage';
 import Wireless from './Wireless';
 import NMEA from './NMEA';
 import Position from './Position';
 import Atmospheric from './Atmospheric';
-import Analog from './Analog';
+import Custom from './Custom';
 import Dashboard from './Dashboard';
 import Unknown from './Unknown';
 
@@ -29,8 +29,8 @@ const Pages = pure(
           return Position;
         case 'atmospheric':
           return Atmospheric;
-        case 'analog':
-          return Analog;
+        case 'custom':
+          return Custom;
         // Other
         case 'dashboard':
           return Dashboard;

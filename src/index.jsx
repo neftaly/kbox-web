@@ -44,42 +44,76 @@ const state = hashRouter(
       yaw: 0
     },
     atmospheric: {},
-    analog: {
+    custom: {
+      input: 'pin0',
       inputs: {
         pin0: {
-          type: 'outsideTemp',
+          name: 'outside temp',
+          type: 'Temperature',
+          index: 3,
+          pgn: [
+            1,
+            1,
+            1,
+            null,
+            null
+          ],
           data: [
             [ 8, 10 ],
             [ 10, 20 ],
             [ 12, 80 ]
-          ],
-          units: [ 'volts', '℃' ]
+          ]
         },
         pin1: {
-          type: 'battCharge',
+          name: 'batt cap (LiFePo4)',
+          type: 'DCStatus',
+          index: 3,
+          pgn: [
+            1,
+            1,
+            0,
+            null,
+            null,
+            null,
+            null
+          ],
           data: [
             [ 10, 0 ],
             [ 11, 40 ],
             [ 13, 60 ],
             [ 14, 100 ]
-          ],
-          units: [ 'volts', 'percent' ]
+          ]
         },
         pin2: {
-          type: 'insideTemp',
+          name: 'diesel',
+          type: 'FluidLevel',
+          index: 2,
+          pgn: [
+            1,
+            0,
+            null,
+            50
+          ],
           data: [
             [ 8, 20 ],
             [ 12, 40 ]
-          ],
-          units: [ 'volts', '℃' ]
+          ]
         },
         pin3: {
-          type: 'current',
+          name: 'current draw',
+          type: 'DCBatStatus',
+          index: 2,
+          pgn: [
+            1,
+            null,
+            null,
+            null,
+            1
+          ],
           data: [
             [ 0, 0 ],
-            [ 20, 50 ]
-          ],
-          units: [ 'millvolts', 'amps' ]
+            [ 0.020, 50 ]
+          ]
         }
       }
     }

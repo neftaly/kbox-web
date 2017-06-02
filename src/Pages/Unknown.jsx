@@ -1,4 +1,4 @@
-import { pure } from 'recompose';
+import pure from 'omniscient';
 
 const Unknown = pure(props => <div>
   unknown page

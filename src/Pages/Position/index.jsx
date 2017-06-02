@@ -1,5 +1,5 @@
 import R from 'ramda';
-import { pure } from 'recompose';
+import pure from 'omniscient';
 import Kbox3dModel from './Kbox3dModel';
 
 const Position = pure(

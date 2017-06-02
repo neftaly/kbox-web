@@ -1,0 +1,198 @@
+{
+  "HeadingReference": [
+    "hr_true",
+    "hr_magnetic"
+  ],
+  "DistanceCalculationType": [
+    "dct_GreatCircle",
+    "dct_RhumbLine"
+  ],
+  "XTEMode ": [
+    "xtem_Autonomous",
+    "xtem_Differential",
+    "xtem_Estimated",
+    "xtem_Simulator",
+    "xtem_Manual"
+  ],
+  "GNSStype": [
+    "GNSSt_GPS",
+    "GNSSt_GLONASS",
+    "GNSSt_GPSGLONASS",
+    "GNSSt_GPSSBASWAAS",
+    "GNSSt_GPSSBASWAASGLONASS",
+    "GNSSt_Chayka",
+    "GNSSt_integrated",
+    "GNSSt_surveyed",
+    "GNSSt_Galileo"
+  ],
+  "GNSSmethod": [
+    "GNSSm_noGNSS",
+    "GNSSm_GNSSfix",
+    "GNSSm_DGNSS",
+    "GNSSm_PreciseGNSS"
+  ],
+  "GNSSDOPmode": [
+    "GNSSdm_1D",
+    "GNSSdm_2D",
+    "GNSSdm_3D",
+    "GNSSdm_Auto",
+    "GNSSdm_Reserved",
+    "GNSSdm_Error"
+  ],
+  "TempSource": [
+    "ts_SeaTemperature",
+    "ts_OutsideTemperature",
+    "ts_InsideTemperature",
+    "ts_EngineRoomTemperature",
+    "ts_MainCabinTemperature",
+    "ts_LiveWellTemperature",
+    "ts_BaitWellTemperature",
+    "ts_RefridgerationTemperature",
+    "ts_HeatingSystemTemperature",
+    "ts_DewPointTemperature",
+    "ts_ApparentWindChillTemperature",
+    "ts_TheoreticalWindChillTemperature",
+    "ts_HeatIndexTemperature",
+    "ts_FreezerTemperature",
+    "ts_ExhaustGasTemperature"
+  ],
+  "HumiditySource": [
+    "hs_InsideHumidity",
+    "hs_OutsideHumidity",
+    "hs_Undef"
+  ],
+  "TimeSource": [
+    "times_GPS",
+    "times_GLONASS",
+    "times_RadioStation",
+    "times_LocalCesiumClock",
+    "times_LocalRubidiumClock",
+    "times_LocalCrystalClock"
+  ],
+  "FluidType": [
+    "ft_Fuel",
+    "ft_Water",
+    "ft_GrayWater",
+    "ft_LiveWell",
+    "ft_Oil",
+    "ft_BlackWater"
+  ],
+  "WindReference": [
+    "Wind_True_North",
+    "Wind_Magnetic",
+    "Wind_Apprent",
+    "Wind_True_boat"
+  ],
+  "SpeedWaterReferenceType": [
+    "SWRT_Paddle_wheel",
+    "SWRT_Pitot_tube",
+    "SWRT_Doppler_log",
+    "SWRT_Ultra_Sound",
+    "SWRT_Electro_magnetic"
+  ],
+  "RudderDirectionOrder": [
+    "RDO_NoDirectioOrder",
+    "RDO_MoveToStarboard",
+    "RDO_MoveToPort"
+  ],
+  "DCType": [
+    "DCt_Battery",
+    "DCt_Alternator",
+    "DCt_Converter",
+    "DCt_SolarCell",
+    "DCt_WindGenerator"
+  ],
+  "BatType ": [
+    "DCbt_Flooded",
+    "DCbt_Gel",
+    "DCbt_AGM"
+  ],
+  "BatEqSupport ": [
+    "DCES_No",
+    "DCES_Yes",
+    "DCES_Error",
+    "DCES_Unavailable"
+  ],
+  "BatChem": [
+    "DCbc_LeadAcid",
+    "DCbc_LiIon",
+    "DCbc_NiCad",
+    "DCbc_NiMh"
+  ],
+  "BatNomVolt": [
+    "DCbnv_6v",
+    "DCbnv_12v",
+    "DCbnv_24v",
+    "DCbnv_32v",
+    "DCbnv_62v",
+    "DCbnv_42v",
+    "DCbnv_48v"
+  ],
+  "TransmissionGear": [
+    "TG_Forward",
+    "TG_Neutral",
+    "TG_Reverse",
+    "TG_Unknown"
+  ],
+  "AISRepeat": [
+    "aisr_Initial",
+    "aisr_First",
+    "aisr_Second",
+    "aisr_Final"
+  ],
+  "AISVersion": [
+    "aisv_ITU_R_M_1371_1",
+    "aisv_ITU_R_M_1371_3"
+  ],
+  "AISTranceiverInfo": [
+    "aisti_Channel_A_VDL_reception",
+    "aisti_Channel_B_VDL_reception",
+    "aisti_Channel_A_VDL_transmission",
+    "aisti_Channel_B_VDL_transmission",
+    "aisti_Own_information_not_broadcast",
+    "aisti_Reserved"
+  ],
+  "AISNavStatus": [
+    "aisns_Under_Way_Motoring",
+    "aisns_At_Anchor",
+    "aisns_Not_Under_Command",
+    "aisns_Restricted_Manoeuverability",
+    "aisns_Constrained_By_Draught",
+    "aisns_Moored",
+    "aisns_Aground",
+    "aisns_Fishing",
+    "aisns_Under_Way_Sailing",
+    "aisns_Hazardous_Material_High_Speed",
+    "aisns_Hazardous_Material_Wing_In_Ground",
+    "aisns_AIS_SART"
+  ],
+  "AISDTE": [
+    "aisdte_Ready",
+    "aisdte_NotReady"
+  ],
+  "AISUnit": [
+    "aisunit_ClassB_SOTDMA",
+    "aisunit_ClassB_CS"
+  ],
+  "AISMode": [
+    "aismode_Autonomous",
+    "aismode_Assigned"
+  ],
+  "MagneticVariation": [
+    "magvar_Manual",
+    "magvar_Chart",
+    "magvar_Table",
+    "magvar_Calc",
+    "magvar_WMM2000",
+    "magvar_WMM2005",
+    "magvar_WMM2010",
+    "magvar_WMM2015",
+    "magvar_WMM2020"
+  ],
+  "OnOff ": [
+    "OnOff_Off",
+    "OnOff_On",
+    "OnOff_Error",
+    "OnOff_Unavailable"
+  ]
+}

@@ -1,69 +1,56 @@
-import { pure } from 'recompose';
+import pure from 'omniscient';
 import {
-  Container,
   Menu
 } from 'semantic-ui-react';
 
-const SideMenu = pure(({ page }) => {
-  const name = page.valueOf();
-  const set = newName => event => page.set(newName);
-  return <Container>
-    <Menu.Item
-      name='dashboard'
-      active={name === 'dashboard'}
-      onClick={set('dashboard')}
-    />
+const Item = ({
+  page,
+  id,
+  name = id
+}) => <Menu.Item
+  name={name}
+  active={page.valueOf() === id}
+  onClick={event => page.set(id)}
+/>;
+
+const SideMenu = pure(
+  ({ page, tempState }) => <Menu style={{
+    minHeight: '100vh',
+    float: 'left',
+    borderTop: 0,
+    borderBottom: 0,
+    borderLeft: 0,
+    borderRadius: 0
+  }} vertical borderless>
+    <Item page={page} id='dashboard' />
     <Menu.Item>
-      <Menu.Header>Device</Menu.Header>
+      <Menu.Header children='Device' />
       <Menu.Menu>
-        <Menu.Item
-          name='interface'
-          active={name === 'interface'}
-          onClick={set('interface')}
-        />
-        <Menu.Item
-          name='storage'
-          active={name === 'storage'}
-          onClick={set('storage')}
-        />
+        <Item page={page} id='interface' />
+        <Item page={page} id='storage' />
       </Menu.Menu>
     </Menu.Item>
     <Menu.Item>
-      <Menu.Header>Network</Menu.Header>
+      <Menu.Header children='Network' />
       <Menu.Menu>
-        <Menu.Item
-          name='wireless'
-          active={name === 'wireless'}
-          onClick={set('wireless')}
-        />
-        <Menu.Item
-          name='NMEA'
-          active={name === 'nmea'}
-          onClick={set('nmea')}
-        />
+        <Item page={page} id='wireless' />
+        <Item page={page} id='nmea' name='NMEA' />
       </Menu.Menu>
     </Menu.Item>
     <Menu.Item>
-      <Menu.Header>Sensors</Menu.Header>
+      <Menu.Header children='Sensors' />
       <Menu.Menu>
-        <Menu.Item
-          name='position'
-          active={name === 'position'}
-          onClick={set('position')}
-        />
-        <Menu.Item
-          name='atmospheric'
-          active={name === 'atmospheric'}
-          onClick={set('atmospheric')}
-        />
-        <Menu.Item
-          name='analog'
-          active={name === 'analog'}
-          onClick={set('analog')}
-        />
+        <Item page={page} id='position' />
+        <Item page={page} id='atmospheric' />
+        <Item page={page} id='custom' />
       </Menu.Menu>
     </Menu.Item>
-  </Container>;
-});
+    <pre children={
+      JSON.stringify(tempState, null, 2)
+    } style={{
+      fontSize: '0.6em'
+    }} />
+  </Menu>
+);
 
 export default SideMenu;

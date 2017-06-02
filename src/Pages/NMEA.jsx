@@ -1,4 +1,4 @@
-import { pure } from 'recompose';
+import pure from 'omniscient';
 
 const NMEA = pure(({ state }) => <div>
  NMEA 0183

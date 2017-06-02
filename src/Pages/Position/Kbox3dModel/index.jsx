@@ -1,4 +1,4 @@
-import { pure } from 'recompose';
+import pure from 'omniscient';
 import './style.css';
 import boat from './boat.svg';
 

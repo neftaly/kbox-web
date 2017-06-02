@@ -1,7 +1,5 @@
-import { pure } from 'recompose';
+import pure from 'omniscient';
 import {
-  Menu,
-  Sidebar,
   Segment
 } from 'semantic-ui-react';
 import SideMenu from './SideMenu';
@@ -17,25 +15,13 @@ const Main = pure(
     minHeight: '100vh',
     position: 'absolute'
   }}>
-    <Sidebar.Pushable as={Segment}>
-      <Sidebar as={Menu} visible vertical inverted>
-        <SideMenu page={state.cursor('page')} />
-        <pre
-          children={JSON.stringify(state, null, 2)}
-          style={{
-            color: 'white',
-            fontSize: '0.8em'
-          }}
-        />
-      </Sidebar>
-      <Sidebar.Pusher>
-        <Segment
-          basic
-          style={{ width: 'calc(100% - 19em)' }}
-          children={<Pages state={state} />}
-        />
-      </Sidebar.Pusher>
-    </Sidebar.Pushable>
+    <SideMenu page={state.cursor('page')} tempState={state} />
+    <Segment
+      basic
+      floated='left'
+      style={{ margin: 0 }}
+      children={<Pages state={state} />}
+    />
   </div>
 );
 

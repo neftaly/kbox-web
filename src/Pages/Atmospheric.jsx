@@ -1,4 +1,4 @@
-import { pure } from 'recompose';
+import pure from 'omniscient';
 
 const Atmospheric = pure(({ state }) => <div>
  temp

@@ -1,0 +1,138 @@
+{
+  "DCStatus": [
+    {
+      "name": "SID",
+      "type": "uint8",
+      "value": 1,
+      "required": true,
+      "comment": "Sequence ID. If your device is e.g. boat speed and heading at same time, you can set same SID for different messages to indicate that they are measured at same time"
+    },
+    {
+      "name": "DCInstance",
+      "type": "uint8",
+      "required": true,
+      "comment": "DC instance"
+    },
+    {
+      "name": "DCType",
+      "type": "DCType",
+      "required": true,
+      "comment": "Defines type of DC source. See definition of DCType"
+    },
+    {
+      "name": "StateOfCharge",
+      "type": "uint8",
+      "unit": "%",
+      "comment": "% of charge"
+    },
+    {
+      "name": "StateOfHealth",
+      "type": "uint8",
+      "unit": "%",
+      "comment": "% of heath"
+    },
+    {
+      "name": "TimeRemaining",
+      "type": "float64",
+      "unit": "mins",
+      "comment": "Time remaining in minutes"
+    },
+    {
+      "name": "RippleVoltage",
+      "type": "uint8",
+      "units": "VDC",
+      "comment": "DC output voltage ripple in V"
+    }
+  ],
+  "DCBatStatus": [
+    {
+      "name": "BatteryInstance",
+      "type": "uint8",
+      "required": true,
+      "comment": "Battery instance"
+    },
+    {
+      "name": "BatteryVoltage",
+      "type": "float64",
+      "unit": "VDC",
+      "comment": "Battery voltage in V"
+    },
+    {
+      "name": "BatteryCurrent",
+      "type": "float64",
+      "unit": "A",
+      "comment": "Current in A"
+    },
+    {
+      "name": "BatteryTemperature",
+      "type": "float64",
+      "unit": "°K",
+      "comment": "Battery temperature in °K"
+    },
+    {
+      "name": "SID",
+      "type": "uint8",
+      "value": 1,
+      "required": true,
+      "comment": "Sequence ID. If your device is e.g. boat speed and heading at same time, you can set same SID for different messages to indicate that they are measured at same time"
+    }
+  ],
+  "Temperature": [
+    {
+      "name": "SID",
+      "type": "uint8",
+      "value": 1,
+      "required": true,
+      "comment": "Sequence ID. If your device is e.g. boat speed and heading at same time, you can set same SID for different messages to indicate that they are measured at same time"
+    },
+    {
+      "name": "TempInstance",
+      "type": "uint8",
+      "required": true,
+      "comment": "This should be uniq at least on one device. May be best to have it uniq over all devices sending this PGN"
+    },
+    {
+      "name": "TempSource",
+      "type": "TempSource",
+      "comment": "See TempSource"
+    },
+    {
+      "name": "ActualTemperature",
+      "type": "float64",
+      "unit": "°K",
+      "comment": " Temperature in °K"
+    },
+    {
+      "name": "SetTemperature",
+      "type": "float64",
+      "unit": "°K",
+      "comment": "Set temperature in °K. This is meaningfull for temperatures which can be controlled like cabin, freezer, refridgeration temperature"
+    }
+  ],
+  "FluidLevel": [
+    {
+      "name": "FluidInstance",
+      "type": "uint8",
+      "required": true,
+      "comment": "Tank instance. Different devices handles this a bit differently. So it is best to have instance unique over all devices on the bus"
+    },
+    {
+      "name": "FluidType",
+      "type": "FluidType",
+      "required": true,
+      "comment": "Defines type of fluid. See definition of FluidType"
+    },
+    {
+      "name": "Level",
+      "type": "float64",
+      "unit": "%",
+      "comment": "Tank level in % of full tank"
+    },
+    {
+      "name": "Capacity",
+      "type": "float64",
+      "unit": "L",
+      "comment": "Tank Capacity in litres"
+    }
+  ]
+}
