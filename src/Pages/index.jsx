@@ -1,44 +1,31 @@
-import { pure } from 'recompose';
-import Interface from './Interface';
-import Storage from './Storage';
-import Wireless from './Wireless';
-import NMEA from './NMEA';
-import Position from './Position';
-import Atmospheric from './Atmospheric';
-import Power from './Power';
-import Dashboard from './Dashboard';
-import Unknown from './Unknown';
+import pure from 'omniscient';
+import {
+  Segment
+} from 'semantic-ui-react';
+import wireless from './Wireless';
+import dashboard from './Dashboard';
+
+const pages = {
+  wireless,
+  dashboard
+};
 
 const Pages = pure(
-  ({ state }) => {
-    const page = state.cursor('page').valueOf();
-    const Component = (() => {
-      switch (page) {
-        // Device
-        case 'interface':
-          return Interface;
-        case 'storage':
-          return Storage;
-        // Network
-        case 'wireless':
-          return Wireless;
-        case 'nmea':
-          return NMEA;
-        // Sensors
-        case 'position':
-          return Position;
-        case 'atmospheric':
-          return Atmospheric;
-        case 'power':
-          return Power;
-        // Other
-        case 'dashboard':
-          return Dashboard;
-        default:
-          return Unknown;
+  ({ local, remote, ...rest }) => {
+    const page = local.cursor('page').valueOf();
+    const Component = pages[page] || dashboard;
+    return <Segment
+      basic
+      floated='left'
+      style={{ margin: 0 }}
+      children={
+        <Component
+          local={local.cursor('state').cursor(page)}
+          remote={remote.cursor(page)}
+          {...rest}
+        />
       }
-    })();
-    return <Component state={state.cursor(page)} />;
+    />;
   }
 );
 

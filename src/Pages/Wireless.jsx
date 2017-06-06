@@ -1,20 +1,25 @@
 import R from 'ramda';
-import { pure } from 'recompose';
+import pure from 'omniscient';
 import {
   Form,
-  Button
+  Button,
+  Message,
+  Loader
 } from 'semantic-ui-react';
+import {
+  submit
+} from '../lib';
 
 const modes = [
-  {
-    text: 'Station',
-    value: 'STA',
-    key: 'STA'
-  },
   {
     text: 'Access Point',
     value: 'soft-AP',
     key: 'soft-AP'
+  },
+  {
+    text: 'Station',
+    value: 'STA',
+    key: 'STA'
   }
 ];
 
@@ -42,50 +47,71 @@ const securityModes = [
 ];
 
 const Wireless = pure(
-  ({ state }) => {
-    const mode = state.cursor('mode');
-    const ssid = state.cursor('ssid');
-    const securityMode = state.cursor('securityMode');
-    const securityKey = state.cursor('securityKey');
-    const aps = state.cursor('aps');
+  ({ local, remote, connection }) => {
+    const get = key => local.get(key, remote.get(key, ''));
+    const set = (key, value) => value === remote.get(key)
+      ? local.delete(key)
+      : local.set(key, value);
+    const setter = key => (event, { value }) => set(key, value);
+    const aps = remote.get('aps');
 
-    return <Form>
+    return <Form onSubmit={
+      event => Promise.resolve(
+        local
+          .delete('error')
+          .set('loading', true)
+      ).then(
+        submit('wireless', connection)
+      ).then(
+        () => local.clear()
+      ).catch(
+        error => local
+          .delete('loading')
+          .set('error', error)
+      )
+    }>
 
       <Form.Field>
         <label children='Mode' />
         <Form.Select
           options={modes}
-          value={mode.valueOf()}
-          onChange={(event, { value }) => mode.set(value)}
+          value={get('mode')}
+          onChange={setter('mode')}
         />
       </Form.Field>
 
       <Form.Field>
         <label children='SSID' />
-        { mode.valueOf() === 'soft-AP'
-          ? <Form.Input
-            value={ssid.valueOf()}
-            onChange={(event, { value }) => ssid.set(value)}
-          />
-          : <Form.Select
-            options={R.map(
-              ([ ssid, ap ]) => ({
-                text: `${ssid} (${Math.round(ap.signalStrength * 100)}%)`,
-                value: ssid,
-                key: ssid
-              }),
-              R.toPairs(aps.toJS())
-            )}
-            value={ssid.valueOf()}
-            onChange={(event, { value }) => {
-              ssid.set(value);
-              securityMode.update(
-                oldSecurityMode => aps.getIn(
-                  [value, 'securityMode'],
-                  oldSecurityMode
+        {
+          get('mode') === 'soft-AP'
+            ? <Form.Input
+              value={get('ssid')}
+              onChange={setter('ssid')}
+            />
+            : <Form.Select
+              value={get('ssid')}
+              options={
+                R.map(
+                  ([ ssid, { strength } ]) => ({
+                    text: `${ssid} (${Math.round(strength * 100)}%)`,
+                    value: ssid,
+                    key: ssid
+                  }),
+                  R.toPairs(aps.toJS())
                 )
-              );
-            }}
+              }
+              onChange={
+                (event, { value }) => set(
+                  'ssid',
+                  value
+                ) && set(
+                  'securityMode',
+                  aps.getIn(
+                    [value, 'mode'],
+                    get('securityMode')
+                  )
+                )
+              }
           />
         }
       </Form.Field>
@@ -94,16 +120,37 @@ const Wireless = pure(
         <label children='Security' />
         <Form.Select
           options={securityModes}
-          value={securityMode.valueOf()}
-          onChange={(event, { value }) => securityMode.set(value)}
+          value={get('securityMode')}
+          onChange={setter('securityMode')}
         />
-        { securityMode.valueOf() !== 'open' && <Form.Input
-          value={securityKey.valueOf()}
-          onChange={(event, { value }) => securityKey.set(value)}
+        { get('securityMode') !== 'open' && <Form.Input
+          value={get('securityKey')}
+          onChange={setter('securityKey')}
         /> }
       </Form.Field>
 
-      <Button type='submit'>Submit</Button>
+      { local.get('loading') && <Message>
+        <Loader inline active />
+      </Message> }
+
+      { local.get('error') && <Message negative>
+        { console.log(local.get('error')) }
+        <Message.Header children={local.get('error').name} />
+        <p children={local.get('error').message} />
+      </Message> }
+
+      <Button
+        type='submit'
+        disabled={local.isEmpty()}
+        children='Submit'
+      />
+      <Button
+        type='reset'
+        onClick={event => local.clear()}
+        disabled={local.isEmpty()}
+        children='Reset'
+      />
+
     </Form>;
   }
 );

@@ -1,7 +1,9 @@
-import { pure } from 'recompose';
+import pure from 'omniscient';
 
-const Dashboard = pure(({ state }) => <div>
- dashboard
-</div>);
+const Dashboard = pure(
+  ({ local, remote }) => <div>
+    dashboard
+  </div>
+);
 
 export default Dashboard;
