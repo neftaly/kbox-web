@@ -10,31 +10,32 @@
   "dependencies": {
     "immstruct": "^2.0.0",
     "immutable": "^3.8.1",
+    "kumara": "0.0.0",
     "normalize.css": "^7.0.0",
     "omniscient": "^4.1.1",
-    "ramda": "^0.24.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "ramda": "^0.24.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "semantic-ui-css": "^2.2.10",
-    "semantic-ui-react": "^0.68.5"
+    "semantic-ui-react": "^0.70.0"
   },
   "devDependencies": {
-    "babel-core": "^6.24.1",
+    "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.0.0",
+    "babel-loader": "^7.1.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.4",
-    "file-loader": "^0.11.1",
-    "html-webpack-plugin": "^2.28.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
     "react-hot-loader": "^3.0.0-beta.7",
     "semistandard": "^11.0.0",
     "snazzy": "^7.0.0",
-    "style-loader": "^0.18.1",
-    "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
   },
   "babel": {
     "presets": [

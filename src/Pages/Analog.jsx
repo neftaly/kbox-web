@@ -1,9 +1,11 @@
 import pure from 'omniscient';
 
-const Dashboard = pure(
+const Analog = pure(
   ({ local, remote }) => <div>
-    dashboard
+    analog
+
+    input 1/2/3/4
   </div>
 );
 
-export default Dashboard;
+export default Analog;

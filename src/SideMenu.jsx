@@ -14,7 +14,7 @@ const Item = ({
 />;
 
 const SideMenu = pure(
-  ({ page, temp }) => <Menu style={{
+  ({ page }) => <Menu style={{
     minHeight: '100vh',
     float: 'left',
     borderTop: 0,
@@ -22,18 +22,21 @@ const SideMenu = pure(
     borderLeft: 0,
     borderRadius: 0
   }} vertical borderless>
-    <Item page={page} id='dashboard' />
+    <Item page={page} id='stats' />
     <Menu.Item>
       <Menu.Header children='Network' />
       <Menu.Menu>
         <Item page={page} id='wireless' />
+        <Item page={page} id='nmea' name='NMEA' />
       </Menu.Menu>
     </Menu.Item>
-    <pre children={
-      JSON.stringify(temp, null, 2)
-    } style={{
-      fontSize: '0.6em'
-    }} />
+    <Menu.Item>
+      <Menu.Header children='Sensors' />
+      <Menu.Menu>
+        <Item page={page} id='analog' />
+        <Item page={page} id='position' />
+      </Menu.Menu>
+    </Menu.Item>
   </Menu>
 );
 

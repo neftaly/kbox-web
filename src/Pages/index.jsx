@@ -2,29 +2,44 @@ import pure from 'omniscient';
 import {
   Segment
 } from 'semantic-ui-react';
-import wireless from './Wireless';
-import dashboard from './Dashboard';
 
-const pages = {
-  wireless,
-  dashboard
-};
+import Analog from './Analog';
+import Nmea from './Nmea';
+import Position from './Position';
+import Wireless from './Wireless';
+import Stats from './Stats';
 
 const Pages = pure(
   ({ local, remote, ...rest }) => {
-    const page = local.cursor('page').valueOf();
-    const Component = pages[page] || dashboard;
+    const page = local.get('page');
+    const status = remote.cursor('status');
+    const props = {
+      ...rest,
+      local: local.cursor(['settings', page]),
+      remote: remote.cursor(['settings', page])
+    };
+
+    const children = (() => {
+      switch (page) {
+        case 'analog':
+          return <Analog {...props} />;
+        case 'nmea':
+          return <Nmea {...props} status={status} />;
+        case 'position':
+          return <Position {...props} />;
+        case 'wireless':
+          return <Wireless {...props} />;
+        case 'stats':
+        default:
+          return <Stats {...props} status={status} />;
+      }
+    })();
+
     return <Segment
       basic
       floated='left'
       style={{ margin: 0 }}
-      children={
-        <Component
-          local={local.cursor('state').cursor(page)}
-          remote={remote.cursor(page)}
-          {...rest}
-        />
-      }
+      children={children}
     />;
   }
 );

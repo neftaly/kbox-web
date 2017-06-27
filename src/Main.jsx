@@ -14,7 +14,6 @@ const Main = pure(
   }}>
     <SideMenu
       page={local.cursor('page')}
-      temp={{ local, remote }}
     />
     <Pages
       local={local}
